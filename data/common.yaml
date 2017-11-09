@@ -1,0 +1,11 @@
+---
+icecc::ensure: present
+icecc::scheduler: false
+icecc::package_name: icecc
+icecc::package_ensure: present
+icecc::manage_firewall: false
+icecc::max_jobs: 5
+icecc::cache_dir: /var/cache/icecc
+icecc::netname: unknown
+icecc::log_level: 5
+icecc::log_file: /var/log/icecc_scheduler.log
