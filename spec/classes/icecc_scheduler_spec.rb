@@ -25,7 +25,7 @@ describe 'icecc' do
             it { should contain_class('icecc::install').that_comes_before('Class[icecc::configure]') }
             it { should contain_class('icecc::configure') }
 
-            it { should contain_class('icecc::service').that_subscribes_to('Class[icecc::configure]')}
+            it { should contain_class('icecc::scheduler').that_subscribes_to('Class[icecc::configure]')}
 
             it { should_not contain_firewall('811 Accept ICEcc Scheduler/UDP traffic') }
             it { should_not contain_firewall('810 Accept ICEcc Scheduler/TCP traffic') }
