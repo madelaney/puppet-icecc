@@ -3,12 +3,6 @@ require 'beaker-rspec/helpers/serverspec'
 require 'beaker/puppet_install_helper'
 require 'beaker/module_install_helper'
 
-# https://github.com/puppetlabs/beaker/tree/master/docs/how_to
-# https://github.com/puppetlabs/beaker-rspec
-run_puppet_install_helper unless ENV['BEAKER_provision'] == 'no' || ENV['BEAKER_set'] =~ /freebsd/
-install_module_on(hosts)
-install_module_dependencies_on(hosts)
-
 RSpec.configure do |c|
   # Project root
   proj_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
@@ -29,9 +23,12 @@ RSpec.configure do |c|
         # updated.puppetlabs.com entry
         #
         # on host, 'echo 127.0.0.1\tlocalhost >> /etc/hosts'
+      else
+        run_puppet_install_helper
       end
-      #puppet_module_install(source: proj_root, module_name: 'icecc')
-      #on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
+
+      puppet_module_install(source: proj_root, module_name: 'icecc')
+      on(host, puppet('module', 'install', 'puppetlabs-stdlib'))
     end
   end
 end

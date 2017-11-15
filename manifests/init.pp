@@ -52,7 +52,8 @@ class icecc(
   $cache_dir,
   $netname,
   $log_level,
-  $log_file
+  $log_file,
+  $config_file
 ) {
 	contain ::icecc::install
 	contain ::icecc::configure
@@ -62,7 +63,7 @@ class icecc(
 
   if $scheduler {
     class {
-      '::icecc::service':
+      '::icecc::scheduler':
         require   => Class['icecc::configure'],
         subscribe => Class['icecc::configure']
     }

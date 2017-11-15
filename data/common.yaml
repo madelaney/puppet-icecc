@@ -9,3 +9,4 @@ icecc::cache_dir: /var/cache/icecc
 icecc::netname: unknown
 icecc::log_level: 5
 icecc::log_file: /var/log/icecc_scheduler.log
+icecc::config_file: /etc/icecc/icecc.conf

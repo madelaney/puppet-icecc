@@ -22,7 +22,7 @@ class icecc::configure (
 
   file_line {
     'icecc_max_jobs':
-      path  => '/etc/icecc/icecc.conf',
+      path  => $::icecc::config_file,
       line  => "ICECC_MAX_JOBS=${max_jobs}",
       match => '^ICECC_MAX_JOBS\=';
   }
