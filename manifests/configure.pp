@@ -1,10 +1,11 @@
 class icecc::configure (
-  $manage_firewall = $::icecc::manage_firewall,
-  $max_jobs        = $::icecc::max_jobs,
-  $cache_dir       = $::icecc::cache_dir,
-  $netname         = $::icecc::netname,
-  $log_level       = $::icecc::log_level,
-  $log_file        = $::icecc::log_file
+  $manage_firewall  = $::icecc::manage_firewall,
+  $max_jobs         = $::icecc::max_jobs,
+  $base_dir         = $::icecc::base_dir,
+  $netname          = $::icecc::netname,
+  $log_level        = $::icecc::log_level,
+  $log_file         = $::icecc::log_file,
+  $scheduler_host   = $::icecc::scheduler_host
 ) inherits icecc {
   if $::icecc::manage_firewall {
     firewall {
@@ -20,10 +21,9 @@ class icecc::configure (
       ensure => running;
   }
 
-  file_line {
-    'icecc_max_jobs':
-      path  => $::icecc::config_file,
-      line  => "ICECC_MAX_JOBS=${max_jobs}",
-      match => '^ICECC_MAX_JOBS\=';
+  file {
+    $::icecc::config_file:
+      ensure  => present,
+      content => template('icecc/icecc.conf.erb');
   }
 }

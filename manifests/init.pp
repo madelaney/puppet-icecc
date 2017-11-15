@@ -49,11 +49,12 @@ class icecc(
   $package_ensure,
   $manage_firewall,
   $max_jobs,
-  $cache_dir,
+  $base_dir,
   $netname,
   $log_level,
   $log_file,
-  $config_file
+  $config_file,
+  $scheduler_host
 ) {
 	contain ::icecc::install
 	contain ::icecc::configure
