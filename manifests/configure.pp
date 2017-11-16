@@ -3,12 +3,12 @@ class icecc::configure (
   $max_jobs           = $::icecc::max_jobs,
   $base_dir           = $::icecc::base_dir,
   $netname            = $::icecc::netname,
-  $log_level          = $::icecc::log_level,
   $log_file           = $::icecc::log_file,
   $scheduler_log_file = $::icecc::scheduler_log_file,
   $scheduler_host     = $::icecc::scheduler_host,
   $allow_remote       = $::icecc::allow_remote,
-  $config_file        = $::icecc::config_file
+  $config_file        = $::icecc::config_file,
+  $nice_level         = $::icecc::nice_level
 ) inherits icecc {
   if $manage_firewall {
     firewall {
@@ -18,6 +18,9 @@ class icecc::configure (
         action => 'accept';
     }
   }
+
+  notice("Running with configure::allow_remote == ${allow_remote}")
+  notify { "Running with configure::allow_remote == ${allow_remote}": }
 
   service {
     'iceccd':

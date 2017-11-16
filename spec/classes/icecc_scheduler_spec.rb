@@ -32,6 +32,7 @@ describe 'icecc' do
 
             it { should contain_package('icecc') }
             it { should contain_service('icecc-scheduler') }
+            it { should contain_service('icecc-scheduler').that_subscribes_to('File[/etc/icecc/icecc.conf]') }
           end
         end
       end

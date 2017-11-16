@@ -51,15 +51,18 @@ class icecc(
   $max_jobs,
   $base_dir,
   $netname,
-  $log_level,
   $log_file,
   $config_file,
   $scheduler_log_file,
   $scheduler_host,
-  $allow_remote
+  $allow_remote,
+  $nice_level
 ) {
 	contain ::icecc::install
 	contain ::icecc::configure
+
+  notice("Running with allow_remote == ${allow_remote}")
+  notify { "Running with allow_remote == ${allow_remote}": }
 
 	Class['icecc::install'] ->
 		Class['icecc::configure']
