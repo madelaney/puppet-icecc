@@ -55,7 +55,8 @@ class icecc(
   $log_file,
   $config_file,
   $scheduler_log_file,
-  $scheduler_host
+  $scheduler_host,
+  $allow_remote
 ) {
 	contain ::icecc::install
 	contain ::icecc::configure

@@ -12,3 +12,4 @@ icecc::log_file: /var/log/icecc.log
 icecc::scheduler_log_file: /var/log/icecc_scheduler.log
 icecc::config_file: /etc/icecc/icecc.conf
 icecc::scheduler_host:
+icecc::allow_remote: "NO"

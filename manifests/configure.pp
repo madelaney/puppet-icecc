@@ -6,9 +6,11 @@ class icecc::configure (
   $log_level          = $::icecc::log_level,
   $log_file           = $::icecc::log_file,
   $scheduler_log_file = $::icecc::scheduler_log_file,
-  $scheduler_host     = $::icecc::scheduler_host
+  $scheduler_host     = $::icecc::scheduler_host,
+  $allow_remote       = $::icecc::allow_remote,
+  $config_file        = $::icecc::config_file
 ) inherits icecc {
-  if $::icecc::manage_firewall {
+  if $manage_firewall {
     firewall {
       '800 Allow ICEcc/TCP Daemon':
         dport  => ['10245'],
@@ -19,11 +21,12 @@ class icecc::configure (
 
   service {
     'iceccd':
-      ensure => running;
+      ensure    => running,
+      subscribe => File[$config_file];
   }
 
   file {
-    $::icecc::config_file:
+    $config_file:
       ensure  => present,
       content => template('icecc/icecc.conf.erb');
   }
