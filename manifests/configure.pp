@@ -19,9 +19,6 @@ class icecc::configure (
     }
   }
 
-  notice("Running with configure::allow_remote == ${allow_remote}")
-  notify { "Running with configure::allow_remote == ${allow_remote}": }
-
   service {
     'iceccd':
       ensure    => running,

@@ -61,9 +61,6 @@ class icecc(
 	contain ::icecc::install
 	contain ::icecc::configure
 
-  notice("Running with allow_remote == ${allow_remote}")
-  notify { "Running with allow_remote == ${allow_remote}": }
-
 	Class['icecc::install'] ->
 		Class['icecc::configure']
 
