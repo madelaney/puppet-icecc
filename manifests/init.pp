@@ -54,6 +54,7 @@ class icecc(
   $log_level,
   $log_file,
   $config_file,
+  $scheduler_log_file,
   $scheduler_host
 ) {
 	contain ::icecc::install

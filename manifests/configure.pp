@@ -1,11 +1,12 @@
 class icecc::configure (
-  $manage_firewall  = $::icecc::manage_firewall,
-  $max_jobs         = $::icecc::max_jobs,
-  $base_dir         = $::icecc::base_dir,
-  $netname          = $::icecc::netname,
-  $log_level        = $::icecc::log_level,
-  $log_file         = $::icecc::log_file,
-  $scheduler_host   = $::icecc::scheduler_host
+  $manage_firewall    = $::icecc::manage_firewall,
+  $max_jobs           = $::icecc::max_jobs,
+  $base_dir           = $::icecc::base_dir,
+  $netname            = $::icecc::netname,
+  $log_level          = $::icecc::log_level,
+  $log_file           = $::icecc::log_file,
+  $scheduler_log_file = $::icecc::scheduler_log_file,
+  $scheduler_host     = $::icecc::scheduler_host
 ) inherits icecc {
   if $::icecc::manage_firewall {
     firewall {

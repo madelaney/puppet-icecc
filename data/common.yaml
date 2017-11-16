@@ -8,6 +8,7 @@ icecc::max_jobs: 5
 icecc::base_dir: /var/cache/icecc
 icecc::netname: '%{::fqdn}'
 icecc::log_level: 5
-icecc::log_file: /var/log/icecc_scheduler.log
+icecc::log_file: /var/log/icecc.log
+icecc::scheduler_log_file: /var/log/icecc_scheduler.log
 icecc::config_file: /etc/icecc/icecc.conf
 icecc::scheduler_host:
