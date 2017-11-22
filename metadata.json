@@ -4,9 +4,9 @@
   "author": "madelaney",
   "summary": "Install and Configures icecc",
   "license": "BSD-3-Clause",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/madelaney/puppet-icecc",
+  "project_page": "https://github.com/madelaney/puppet-icecc",
+  "issues_url": "https://github.com/madelaney/puppet-icecc/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
