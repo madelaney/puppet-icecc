@@ -58,11 +58,11 @@ class icecc(
   $allow_remote,
   $nice_level
 ) {
-	contain ::icecc::install
-	contain ::icecc::configure
+  contain ::icecc::install
+  contain ::icecc::configure
 
-	Class['icecc::install'] ->
-		Class['icecc::configure']
+  Class['icecc::install']
+    -> Class['icecc::configure']
 
   if $scheduler {
     class {
