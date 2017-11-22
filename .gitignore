@@ -1,4 +1,6 @@
 .vagrant
+junit
+pkg
 log
 vendor
 Gemfile.lock
